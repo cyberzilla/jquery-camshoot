@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Demo jquery Camera 1.0</title>
+    <link rel="stylesheet" href="jquery.camshoot.css">
+</head>
+<body>
+
+<div id="cameraContainer"></div>
+
+<script type="text/javascript" src="jquery.min.js"></script>
+<script type="text/javascript" src="jquery.camshoot.js"></script>
+<script type="text/javascript">
+    $(function(){
+        $("#cameraContainer").camera({
+            height:600,
+            width:400,
+            sound:true,
+            imagetype: 'jpg',
+            filename: 'testing',
+            flasheffect: true
+        });
+    });
+</script>
+</body>
+</html>
