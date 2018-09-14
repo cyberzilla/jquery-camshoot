@@ -6,7 +6,7 @@
 */
 
 (function ($) {
-    $.fn.camera = function(options) {
+    $.fn.camshoot = function(options) {
         var $this = this,
         settings = $.extend({
             id:$.now(),
