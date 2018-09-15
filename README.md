@@ -20,6 +20,8 @@ Not Working on Edge Browser
 | outputdir             | null                |
 | filename       | 'images'                             |
 | services            | save.php                            |
+| params| null for extra params|
+| _token| null for laravel|
 
 #### USAGE
 
