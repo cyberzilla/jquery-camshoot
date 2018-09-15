@@ -1,6 +1,6 @@
 /* JQuery CamShoot
--- version 1.1
--- copyright 2017 abu@dzakiyyah.com
+-- version 1.2
+-- copyright 2018 abu@dzakiyyah.com
 -- licensed under the MIT
 -- filename jquery.camshoot.js
 */
@@ -24,6 +24,8 @@
             outputdir:'',
             filename:'image',
             services:'save.php',
+            params:'', //for extra param
+            _token:'', //for laravel
             _initialize:function(){
                 $this.css({width:settings.width,height:settings.height,position:'relative'});
                 $this.append('<video id="'+settings.parentId+'_camera_'+settings.id+'" width="'+settings.width+'" height="'+settings.height+'" autoplay></video>');
@@ -105,7 +107,9 @@
                                                         data:src,
                                                         name:settings.filename,
                                                         ext:settings.imagetype,
-                                                        dir:settings.outputdir
+                                                        dir:settings.outputdir,
+                                                        _token:settings._token, //for laravel
+                                                        params:settings.params //for extra param
                                                      },function(response){
                                 console.log(response);
                                 if(saveaudio!=='disable'){
