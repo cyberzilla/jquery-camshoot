@@ -1,6 +1,6 @@
 /* JQuery CamShoot
--- version 1.2
--- copyright 2018 abu@dzakiyyah.com
+-- version 1.3
+-- copyright 2018 https://abu.dzakiyyah.com
 -- licensed under the MIT
 -- filename jquery.camshoot.js
 */
@@ -28,7 +28,7 @@
             _token:'', //for laravel
             _initialize:function(){
                 $this.css({width:settings.width,height:settings.height,position:'relative'});
-                $this.append('<video id="'+settings.parentId+'_camera_'+settings.id+'" width="'+settings.width+'" height="'+settings.height+'" autoplay></video>');
+                $this.html('<video id="'+settings.parentId+'_camera_'+settings.id+'" width="'+settings.width+'" height="'+settings.height+'" autoplay></video>');
                 var selector = $this.find('#'+settings.parentId+'_camera_'+settings.id)[0];
                 if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
                     navigator.mediaDevices.getUserMedia({
@@ -37,6 +37,7 @@
                             height: settings.height
                         }
                     }).then(function(stream){
+                        window.localStream = stream;
                         selector.srcObject = stream;
                         selector.play();
                     });
@@ -117,15 +118,35 @@
                                 }
                             });
                         });
-            },
 
+            },
             run:function(){
                 settings._initialize();
                 settings._toolbox();
+            },
+            stop:function () {
+                localStream.getVideoTracks()[0].stop();
             }
-        },options);
 
+        },options);
         //execute here
         settings.run();
+
+        //Return Function
+        return {
+            stop:function (){
+                //Stop Stream
+                settings.stop();
+            },
+            reset:function(){
+                //Run Again
+                settings.run();
+            },
+            version:function () {
+                //jQuery Camshoot version
+                console.log("jQuery Camshoot v 1.3\nCreated By Abu Dzakiyyah (abydzakiyyah@gmail.com)\nCopyright 2018 https://abu.dzakiyyah.com")
+            }
+        };
     };
 }(jQuery));
+

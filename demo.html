@@ -7,15 +7,28 @@
 <body>
 
 <div id="cameraContainer"></div>
+<button id="stop">Stop Camera</button>
+<button id="reset">Reset Camera</button>
 
 <script type="text/javascript" src="jquery.min.js"></script>
 <script type="text/javascript" src="jquery.camshoot.js"></script>
 <script type="text/javascript">
     $(function(){
-        $("#cameraContainer").camshoot({
+        var anu = $("#cameraContainer").camshoot({
             height:400,
             width:300
         });
+
+
+        $("#stop").click(function () {
+            anu.stop();
+        });
+        $("#reset").click(function () {
+            anu.reset();
+        });
+
+        anu.version();
+
     });
 </script>
 </body>
