@@ -3,9 +3,9 @@ Take photo with your Webcam using Jquery
 
 [Demo](https://cyberzilla.github.io/jquery-camshoot/demo.html)
 
-Tested on Google Chrome, Vivaldi, and Mozilla Firefox. 
+Tested on New Edge, Google Chrome, Vivaldi, and Mozilla Firefox. 
 
-Not Working on Edge Browser
+Not Working on Old Edge Browser
 
 #### OPTIONS 
 
